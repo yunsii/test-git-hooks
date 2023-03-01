@@ -1,4 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo hook:prepare-commit-msg
+# ref: https://git-scm.com/docs/githooks#_prepare_commit_msg
+# $1: The first is the name of the file that contains the commit log message.
+# $2: The second is the source of the commit message, and can be: message (if a -m or -F option was given)
+# $3: ?
+
+
+echo hook:prepare-commit-msg start
+echo \$1 $1
+echo \$2 $2
+echo \$3 $3
+echo hook:prepare-commit-msg end
