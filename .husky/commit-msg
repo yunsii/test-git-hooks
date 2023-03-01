@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo hook:commit-msg
+# ref: https://git-scm.com/docs/githooks#_commit_msg
+# $2: It takes a single parameter, the name of the file that holds the proposed commit log message.
+
+echo hook:commit-msg start
+echo \$1 $1
+echo hook:commit-msg end
