@@ -5,5 +5,8 @@
 # $2: It takes a single parameter, the name of the file that holds the proposed commit log message.
 
 echo hook:commit-msg start
+# ref: https://stackoverflow.com/a/10771857/8335317
+msg=`cat $1`
+echo =\> \`$msg\`
 echo \$1 $1
 echo hook:commit-msg end
