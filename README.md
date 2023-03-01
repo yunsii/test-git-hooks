@@ -2,6 +2,16 @@ Test Git Hooks
 
 > Git Hooks 官方文档：https://git-scm.com/docs/githooks
 
+## 备忘录
+
+代码提交和合并**默认**都会进过以下两个 hook
+
+- prepare-commit-msg
+- commit-msg
+
+值得注意的是，在代码合并时，如果 Git 能自动处理则在以上两个 hook 中拿到的文件路径为 `.git/MERGE_MSG`，
+prepare-commit-msg 第二个参数为 `merge`。
+
 ## Hooks
 
 ### applypatch-msg
@@ -61,3 +71,5 @@ Test Git Hooks
 ### p4-pre-submit
 
 ### post-index-change
+
+test
