@@ -14,6 +14,6 @@ echo \$2 $2
 echo \$3 $3
 
 # ref: https://stackoverflow.com/a/58896866/8335317
-pnpm run prevent-from --msg="$'msg'"
+pnpm run prevent-from --msg="$'$msg'"
 
 echo hook:prepare-commit-msg end
