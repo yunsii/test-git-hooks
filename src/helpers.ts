@@ -1,12 +1,19 @@
 import { $ } from "zx";
 
-export function execMergeGitMsg(msg: string) {
-  const reg = /Merge branch '(.+?)'/im;
-  return reg.exec(msg);
+export function execMergeGitAction(action: string) {
+  const regList = [/^merge (\S+)/, /^pull \S+ (\S+)/];
+
+  for (const item of regList) {
+    const result = item.exec(action);
+    if (result) {
+      return result;
+    }
+  }
+  return null;
 }
 
-export function ensureMergeFromBranch(msg: string) {
-  const result = execMergeGitMsg(msg);
+export function ensureMergeFromBranch(action: string) {
+  const result = execMergeGitAction(action);
   if (!result) {
     throw new Error("Parse merge from branch failed");
   }

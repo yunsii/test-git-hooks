@@ -1,1 +1,7 @@
-echo hook:pre-merge-commit
+echo hook:pre-merge-commit start
+echo \$GIT_REFLOG_ACTION $GIT_REFLOG_ACTION
+
+# ref: https://stackoverflow.com/a/58896866/8335317
+pnpm run prevent-from --action='$GIT_REFLOG_ACTION'
+
+echo hook:pre-merge-commit end

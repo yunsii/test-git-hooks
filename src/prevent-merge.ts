@@ -1,23 +1,23 @@
-import { argv } from "zx";
 import consola from "consola";
 
-import { BranchLimits, checkBranch, ensureCurrentBranch, ensureMergeFromBranch, execMergeGitMsg } from "./helpers";
+import { BranchLimits, checkBranch, ensureCurrentBranch, ensureMergeFromBranch, execMergeGitAction } from "./helpers";
+import { argv } from "zx";
 
-const gitMsg = argv.msg;
+const gitReflogAction = argv.action;
 
-const preventedBranches: BranchLimits = ["test"];
+const preventedBranches: BranchLimits = ["test", "origin/test"];
 const whitelistBranches: BranchLimits = [/^mr\//];
 
 export async function main() {
-  if (typeof gitMsg !== "string") {
+  if (!gitReflogAction) {
     return;
   }
 
-  if (!execMergeGitMsg(gitMsg)) {
+  if (!execMergeGitAction(gitReflogAction)) {
     return;
   }
 
-  consola.log(`Merge commit message: ${gitMsg}`);
+  consola.log(`$GIT_REFLOG_ACTION: ${gitReflogAction}`);
 
   const currentBranch = await ensureCurrentBranch();
   if (checkBranch(whitelistBranches, currentBranch)) {
@@ -25,7 +25,7 @@ export async function main() {
     return;
   }
 
-  const mergeFromBranch = ensureMergeFromBranch(gitMsg);
+  const mergeFromBranch = ensureMergeFromBranch(gitReflogAction);
   consola.log(`Parsed merge from branch: ${mergeFromBranch}`);
 
   if (checkBranch(preventedBranches, mergeFromBranch)) {
