@@ -4,7 +4,8 @@
 echo hook:commit-msg start
 # ref: https://stackoverflow.com/a/10771857/8335317
 msg=`cat $1`
-echo =\> \`$msg\`
+# echo with line break, ref: https://stackoverflow.com/a/22101842/8335317
+echo =\> \`"$msg"\`
 echo \$1 $1
 
 npx --no -- commitlint --edit ${1}
