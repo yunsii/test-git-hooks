@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 # ref: https://git-scm.com/docs/githooks#_prepare_commit_msg
 # $1: The first is the name of the file that contains the commit log message.
 # $2: The second is the source of the commit message, and can be: message (if a -m or -F option was given)

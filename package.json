@@ -5,15 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@commitlint/cli": "^17.4.4",
-    "@commitlint/types": "^17.4.4",
-    "@commitlint/config-conventional": "^17.4.4",
-    "husky": "^8.0.0"
-  }
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/types": "^19.5.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "husky": "^9.1.7"
+  },
+  "packageManager": "pnpm@9.14.4"
 }
