@@ -22,7 +22,7 @@ export function ensureMergeFromBranch(action: string) {
 
 export type BranchLimits = (string | RegExp)[];
 
-export function checkBranch(branches: BranchLimits, input: string) {
+export function testBranch(branches: BranchLimits, input: string) {
   return branches.some((item) => {
     if (typeof item === "string") {
       return item === input;
