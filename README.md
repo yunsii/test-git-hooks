@@ -4,6 +4,8 @@ Test Git Hooks
 
 ## 备忘录
 
+123
+
 代码提交和合并**默认**都会进过以下两个 hook
 
 - prepare-commit-msg
